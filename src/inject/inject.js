@@ -2,15 +2,14 @@ const MULTIPLIER = 2
 const DELAY = 15000
 
 chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-	if (document.readyState === "complete") {
-    clearInterval(readyStateCheckInterval)
-    
-    tiltElements()
-    setInterval(tiltElements, DELAY)
-
-	}
-	}, 10);
+  const readyStateCheckInterval = setInterval(function() {
+    if (document.readyState === "complete") {
+      clearInterval(readyStateCheckInterval)
+      
+      tiltElements()
+      setInterval(tiltElements, DELAY)
+    }
+  }, 10);
 });
 
 function tiltElements() {
